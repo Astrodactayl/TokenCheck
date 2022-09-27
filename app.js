@@ -12,7 +12,7 @@ app.use(helmet()) //secure
 app.use(express.json()) //parse json
 app.use(expressip().getIpInfoMiddleware) //ip
 app.use(express.urlencoded({ extended: true }))
-app.use(express.static("public")) //static files
+app.use("/static", express.static(path.join(__dirname, "public"))) //static files
 
 //main page
 app.get("/", (req, res) => {
@@ -61,7 +61,7 @@ app.post("/check", (req, res) => {
 })
 
 //create server
-// app.listen(port, () => console.log(`Listening at port ${port}`))
+app.listen(port, () => console.log(`Listening at port ${port}`))
 
 //vercel
 module.exports = app
