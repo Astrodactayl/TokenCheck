@@ -62,3 +62,6 @@ app.post("/check", (req, res) => {
 
 //create server
 app.listen(port, () => console.log(`Listening at port ${port}`))
+
+//vercel
+module.exports = app
